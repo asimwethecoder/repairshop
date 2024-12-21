@@ -15,7 +15,7 @@ export const customers = pgTable("customers", {
     notes: text("notes"),
     active: boolean("active").notNull().default(true),
     createdAt: timestamp("created_at").notNull().defaultNow(),
-    updatedAt: timestamp("created_at").notNull().defaultNow().$onUpdate(() => new Date()),
+    updatedAt: timestamp("updated_at").notNull().defaultNow().$onUpdate(() => new Date()),
 })
 
 export const tickets = pgTable("tickets", {
@@ -26,7 +26,7 @@ export const tickets = pgTable("tickets", {
     completed: boolean("completed").notNull().default(false),
     tech: varchar("tech").notNull().default("unassigned"),
     createdAt: timestamp("created_at").notNull().defaultNow(),
-    updatedAt: timestamp("created_at").notNull().defaultNow().$onUpdate(() => new Date()),
+    updatedAt: timestamp("updated_at").notNull().defaultNow().$onUpdate(() => new Date()),
 })
 
 export const customersRelations = relations(customers, ({ many 
